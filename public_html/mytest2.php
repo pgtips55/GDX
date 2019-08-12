@@ -17,14 +17,17 @@
           "mapsApiKey": "AIzaSyDpKwyCuOYPIFy2dg19L-Nhjlds3PpflDo"
       });
         google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ['Lat', 'Long', 'Name'],
-            [37.4232, -122.0853, 'Work'],
-            [37.4289, -122.1697, 'University'],
-            [37.6153, -122.3900, 'Airport'],
-            [37.4422, -122.1731, 'Shopping']
-          ]);
+        function drawChart(chartArray) {
+          var data = google.visualization.arrayToDataTable(chartArray
+            /* [
+               ['Lat', 'Long', 'Name'],
+               [37.4232, -122.0853, 'Work'],
+               [37.4289, -122.1697, 'University'],
+               [37.6153, -122.3900, 'Airport'],
+               [37.4422, -122.1731, 'Shopping']
+               ]
+            */
+          );
 
           var map = new google.visualization.Map(document.getElementById('map_div'));
           map.draw(data, {
@@ -91,7 +94,7 @@
                   </table>
       </div>
 
-<div id="map_div" style="width: 600px; height: 300px; align:center"></div>
+<div id="map_div" style="width: 600px; height: 300px; text-align:center"></div>
 
 </body>
 
@@ -102,10 +105,9 @@
     });
     $('#dataTable').on( 'page.dt', function () {
       var table = $('#dataTable').DataTable();
-      table.column( 0, {page:'current'} ).data();
-      table.column( 4, {page:'current'} ).data();
-      table.column( 5, {page:'current'} ).data();
-
+      console.log(table.column( 4, {page:'current'} ).data());
+      console.log(table.column( 5, {page:'current'} ).data());
+      console.log(table.column( 0, {page:'current'} ).data());
     });
 </script>
 
