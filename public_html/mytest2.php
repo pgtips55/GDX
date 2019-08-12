@@ -32,16 +32,15 @@
       $mysqli = new mysqli("localhost", $username, $password, $database);
 
       $query = "SELECT * FROM citydata";
-      echo "<b> <center>Database Output</center> </b> <br> <br>";
 
       if ($result = $mysqli->query($query)) {
 
           while ($row = $result->fetch_assoc()) {
 
-              echo '<tr>\n';
-              echo '  <td>'.$row["COUNTRY"].'<td>\n';
-              echo '  <td>'.$row["CITY_STATE"].'<td>\n';
-              echo '<tr>\n';
+              echo '<tr>';
+              echo '  <td>'.$row["COUNTRY"].'<td>';
+              echo '  <td>'.$row["CITY_STATE"].'<td>';
+              echo '<tr>';
           }
 
       /*freeresultset*/
