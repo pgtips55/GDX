@@ -43,6 +43,8 @@
                         <th>Country</th>
                         <th>Avg Max Temp Dec</th>
                         <th>Avg Rain (mm) Dec</th>
+                        <th>Lat</th>
+                        <th>Lng</th>
                       </tr>
                     </thead>
                     <tfoot>
@@ -51,6 +53,8 @@
                         <th>City</th>
                         <th>Avg Max Temp Dec</th>
                         <th>Avg Rain (mm) Dec</th>
+                        <th>Lat</th>
+                        <th>Lng</th>
                       </tr>
                     </tfoot>
                     <tbody>
@@ -60,7 +64,7 @@
       $database = "tripsixf_db";
       $mysqli = new mysqli("localhost", $username, $password, $database);
 
-      $query = "SELECT COUNTRY, CITY_STATE, AVGMAXTEMP_DEC, AVGPREC_DEC FROM citydata";
+      $query = "SELECT COUNTRY, CITY_STATE, AVGMAXTEMP_DEC, AVGPREC_DEC, substring(g_latlng, 1, position(\",\" in g_latlng)-1) as LAT,  substring(g_latlng, position(\",\" in g_latlng)+2, 99) as LNG FROM citydata";
 
       if ($result = $mysqli->query($query)) {
 
@@ -71,6 +75,8 @@
               echo '  <td>'.$row["COUNTRY"].'</td>';
               echo '  <td>'.$row["AVGMAXTEMP_DEC"].'</td>';
               echo '  <td>'.$row["AVGPREC_DEC"].'</td>';
+              echo '  <td>'.$row["LAT"].'</td>';
+              echo '  <td>'.$row["LNG"].'</td>';
               echo '</tr>';
           }
 
