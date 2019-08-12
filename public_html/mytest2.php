@@ -14,8 +14,10 @@
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                        <th>Country</th>
                         <th>City</th>
+                        <th>Country</th>
+                        <th>Avg Max Temp Dec</th>
+                        <th>Avg Rain (mm) Dec</th>
                       </tr>
                     </thead>
                     <tfoot>
@@ -31,15 +33,17 @@
       $database = "tripsixf_db";
       $mysqli = new mysqli("localhost", $username, $password, $database);
 
-      $query = "SELECT * FROM citydata";
+      $query = "SELECT COUNTRY, CITY_STATE, AVGMAXTEMP_DEC, AVGPREC_DEC FROM citydata";
 
       if ($result = $mysqli->query($query)) {
 
           while ($row = $result->fetch_assoc()) {
 
               echo '<tr>';
-              echo '  <td>'.$row["COUNTRY"].'</td>';
               echo '  <td>'.$row["CITY_STATE"].'</td>';
+              echo '  <td>'.$row["COUNTRY"].'</td>';
+              echo '  <td>'.$row["AVGMAXTEMP_DEC"].'</td>';
+              echo '  <td>'.$row["AVGPREC_DEC"].'</td>';
               echo '</tr>';
           }
 
