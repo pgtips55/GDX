@@ -95,8 +95,8 @@
     });
     $('#dataTable').on( 'page.dt', function () {
       var table = $('#dataTable').DataTable();
-      console.log( table.row( 0, {order:'current'} ).data() );
-      console.log( table.row( 1, {order:'current'} ).data() );
+      console.log( table.column( 0, {page:'current'} ).data() );
+      console.log( table.column( 1, {page:'current'} ).data() );
 
     });
 </script>
