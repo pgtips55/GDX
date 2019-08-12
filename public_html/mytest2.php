@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
   <!-- Bootstrap core JavaScript-->
@@ -101,8 +102,9 @@
     });
     $('#dataTable').on( 'page.dt', function () {
       var table = $('#dataTable').DataTable();
-      console.log( table.column( 0, {page:'current'} ).data() );
-      console.log( table.column( 1, {page:'current'} ).data() );
+      table.column( 0, {page:'current'} ).data();
+      table.column( 4, {page:'current'} ).data();
+      table.column( 5, {page:'current'} ).data();
 
     });
 </script>
