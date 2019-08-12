@@ -91,7 +91,7 @@
                   </table>
       </div>
 
-<div id="map_div" style="width: 400px; height: 300px"></div>
+<div id="map_div" style="width: 600px; height: 300px; align:center"></div>
 
 </body>
 
