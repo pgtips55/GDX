@@ -49,6 +49,8 @@
                       <tr>
                         <th>Country</th>
                         <th>City</th>
+                        <th>Avg Max Temp Dec</th>
+                        <th>Avg Rain (mm) Dec</th>
                       </tr>
                     </tfoot>
                     <tbody>
@@ -90,6 +92,11 @@
 <script>
     $(document).ready(function() {
           $('#dataTable').DataTable();
+    });
+    $('#dataTable').on( 'page.dt', function () {
+      console.log( table.row( 0 ).data() );
+      console.log( table.row( 1 ).data() );
+
     });
 </script>
 
