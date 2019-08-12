@@ -7,7 +7,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Page level plugin JavaScript--><script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+        google.charts.load("current", {
+          "packages":["map"],
+          // Note: you will need to get a mapsApiKey for your project.
+          // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+          "mapsApiKey": "AIzaSyDpKwyCuOYPIFy2dg19L-Nhjlds3PpflDo"
+      });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Lat', 'Long', 'Name'],
+            [37.4232, -122.0853, 'Work'],
+            [37.4289, -122.1697, 'University'],
+            [37.6153, -122.3900, 'Airport'],
+            [37.4422, -122.1731, 'Shopping']
+          ]);
+
+          var map = new google.visualization.Map(document.getElementById('map_div'));
+          map.draw(data, {
+            showTooltip: true,
+            showInfoWindow: true
+          });
+        }
+  </script>
 </head>
 
 <body>
@@ -58,7 +81,7 @@
                   </table>
       </div>
 
-<div id="chart_div"></div>
+<div id="map_div" style="width: 400px; height: 300px"></div>
 
 </body>
 
@@ -70,33 +93,5 @@
 </script>
 
 
-<script>
-    google.charts.load('current', { 'packages': ['map'] });
-    google.charts.setOnLoadCallback(drawMap);
 
-    function drawMap() {
-      var data = google.visualization.arrayToDataTable([
-        ['Country', 'Population'],
-        ['China', 'China: 1,363,800,000'],
-        ['India', 'India: 1,242,620,000'],
-        ['US', 'US: 317,842,000'],
-        ['Indonesia', 'Indonesia: 247,424,598'],
-        ['Brazil', 'Brazil: 201,032,714'],
-        ['Pakistan', 'Pakistan: 186,134,000'],
-        ['Nigeria', 'Nigeria: 173,615,000'],
-        ['Bangladesh', 'Bangladesh: 152,518,015'],
-        ['Russia', 'Russia: 146,019,512'],
-        ['Japan', 'Japan: 127,120,000']
-      ]);
-
-    var options = {
-      showTooltip: true,
-      showInfoWindow: true
-    };
-
-    var map = new google.visualization.Map(document.getElementById('chart_div'));
-
-    map.draw(data, options);
-  };
-  </script>
 </html>
