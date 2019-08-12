@@ -94,6 +94,7 @@
           $('#dataTable').DataTable();
     });
     $('#dataTable').on( 'page.dt', function () {
+      var table = $('#dataTable').DataTable();
       console.log( table.row( 0 ).data() );
       console.log( table.row( 1 ).data() );
 
