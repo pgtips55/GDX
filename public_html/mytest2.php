@@ -38,9 +38,9 @@
           while ($row = $result->fetch_assoc()) {
 
               echo '<tr>';
-              echo '  <td>'.$row["COUNTRY"].'<td>';
-              echo '  <td>'.$row["CITY_STATE"].'<td>';
-              echo '<tr>';
+              echo '  <td>'.$row["COUNTRY"].'</td>';
+              echo '  <td>'.$row["CITY_STATE"].'</td>';
+              echo '</tr>';
           }
 
       /*freeresultset*/
