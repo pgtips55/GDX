@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Page level plugin JavaScript--><script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+  <!--
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
         google.charts.load("current", {
@@ -36,6 +37,7 @@
           });
         }
   </script>
+  -->
 </head>
 
 <body>
@@ -98,16 +100,35 @@
 
 </body>
 
+<script>
 
+      function initMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpKwyCuOYPIFy2dg19L-Nhjlds3PpflDo&callback=initMap">
+    </script>
 <script>
     $(document).ready(function() {
           $('#dataTable').DataTable();
     });
     $('#dataTable').on( 'page.dt', function () {
       var table = $('#dataTable').DataTable();
-      console.log(table.column( 4, {page:'current'} ).data());
-      console.log(table.column( 5, {page:'current'} ).data());
-      console.log(table.column( 0, {page:'current'} ).data());
+      // console.log(table.column( 4, {page:'current'} ).data());
+      // console.log(table.column( 5, {page:'current'} ).data());
+      // console.log(table.column( 0, {page:'current'} ).data());
     });
 </script>
 
